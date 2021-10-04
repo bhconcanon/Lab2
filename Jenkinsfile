@@ -34,7 +34,8 @@ pipeline {
             body: """SUCCESSFUL: Job '${JOB_NAME} [${BUILD_NUMBER}]':
             Check console output at ${BUILD_URL}""",
             to: 'bilal.hussain@concanon.com'
-          )
-        }       
+                )
+            }       
+        }
     }
 }  
