@@ -1,5 +1,17 @@
 pipeline {
-  agent any
+    agent {
+        kubernetes {
+            yaml '''
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: jnlp
+    image: 'jenkins/inbound-agent:4.7-1'
+    args: ['\$(JENKINS_SECRET)', '\$(JENKINS_NAME)']
+    '''
+  }
+}
     tools{
         maven 'maven 3'
     }
