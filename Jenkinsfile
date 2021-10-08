@@ -22,7 +22,7 @@ spec:
             steps {
                 sh '''
                 echo "PATH = ${PATH}"
-                echo "M3_HOME = ${M3_HOME}"
+                echo "M2_HOME = ${M2_HOME}"
                 '''
             }
         }
