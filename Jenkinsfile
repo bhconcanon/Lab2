@@ -6,8 +6,8 @@ apiVersion: v1
 kind: Pod
 spec:
   containers:
-  - name: maven
-    image: 'maven:3.8.2-jdk-11'
+  - name: build
+    image: 'jenkins:2.303.2-jdk11'
     command:
     - cat
     tty: true
