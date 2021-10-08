@@ -39,6 +39,7 @@ spec:
                 sh './scripts/deliver.sh'
                 }
         }
+    }
         post {
             success {
                 emailext (
@@ -57,7 +58,6 @@ spec:
                     Check console output at ${BUILD_URL}""",
                     to: 'bilal.hussain@concanon.com'
                 )
-            }
         }    
     }
 }
