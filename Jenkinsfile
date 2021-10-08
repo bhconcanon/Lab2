@@ -21,7 +21,7 @@ spec:
     stages {
         stage ('build') {
             steps {
-                sh 'mvn -Xe clean package'
+                sh 'mvn -X clean package'
             }
     }
         stage ('test') {
