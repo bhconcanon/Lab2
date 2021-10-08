@@ -7,7 +7,7 @@ kind: Pod
 spec:
   containers:
   - name: build
-    image: 'maven:3.5.4-jdk-8'
+    image: 'maven:3.8.3-jdk-11'
     command:
     - cat
     tty: true
