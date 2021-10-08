@@ -7,11 +7,12 @@ kind: Pod
 spec:
   containers:
   - name: build
-    image: 'jenkins:2.303.2-jdk11'
+    image: 'maven:3.5.4-jdk-8-slim'
     command:
     - cat
     tty: true
     '''
+            defaultContainer 'build'
   }
 }
     tools{
