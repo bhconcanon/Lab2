@@ -42,12 +42,22 @@ spec:
         stage('Notify') {
             post {
                 success {
-                    mail to: bilal.hussain@concanon.com, subject: ‘The Pipeline was successful :)‘
+                    emailext (
+                        subject: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+                        body: """SUCCESSFUL: Job '${JOB_NAME} [${BUILD_NUMBER}]':
+                        Check console output at ${BUILD_URL}""",
+                        to: 'bilal.hussain@concanon.com'
+                    )
                 }
             }
             post {
                 failure {
-                    mail to: bilal.hussain@concanon.com, subject: ‘The Pipeline failed :(‘
+                    emailext (
+                        subject: "FAILURE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+                        body: """FAULURE: Job '${JOB_NAME} [${BUILD_NUMBER}]':
+                        Check console output at ${BUILD_URL}""",
+                        to: 'bilal.hussain@concanon.com'
+                    )
                 }
             }    
         }
