@@ -47,8 +47,10 @@ spec:
                 failure {
                     mail to: bilal.hussain@concanon.com, subject: ‘The Pipeline failed :(‘
 
+                        }
+                    }    
+                }
             }
-                  
         }
     }
-}  
+}
