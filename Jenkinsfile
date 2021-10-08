@@ -21,28 +21,34 @@ spec:
     stages {
         stage ('build') {
             steps {
-                sh 'mvn -X clean package'
+                sh 'mvn -B -DskipTests clean package'
             }
     }
-        stage ('test') {
+        stage('Test') {
             steps {
                 sh 'mvn test'
             }
-    }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
+        }
         stage ('deploy') {
             steps {
                 sh './scripts/deliver.sh'
                 }
         }
-        stage('Email') {
-        steps {
-          emailext (
-            subject: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
-            body: """SUCCESSFUL: Job '${JOB_NAME} [${BUILD_NUMBER}]':
-            Check console output at ${BUILD_URL}""",
-            to: 'bilal.hussain@concanon.com'
-                )
-            }       
+        stage('Notify') {
+            post {
+                success {
+                    mail to: bilal.hussain@concanon.com, subject: ‘The Pipeline was successful :)‘
+            post {
+                failure {
+                    mail to: bilal.hussain@concanon.com, subject: ‘The Pipeline failed :(‘
+
+            }
+                  
         }
     }
 }  
