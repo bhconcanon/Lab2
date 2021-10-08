@@ -43,14 +43,13 @@ spec:
             post {
                 success {
                     mail to: bilal.hussain@concanon.com, subject: ‘The Pipeline was successful :)‘
+                }
+            }
             post {
                 failure {
                     mail to: bilal.hussain@concanon.com, subject: ‘The Pipeline failed :(‘
-
-                        }
-                    }    
                 }
-            }
+            }    
         }
     }
 }
