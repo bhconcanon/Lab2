@@ -19,14 +19,6 @@ spec:
         maven 'maven 3'
     }
     stages {
-        stage ("initialize") {
-            steps {
-                sh '''
-                echo "PATH = ${PATH}"
-                echo "M3_HOME = ${M3_HOME}"
-                '''
-            }
-        }
         stage ('build') {
             steps {
                 sh 'mvn -Xe clean package'
