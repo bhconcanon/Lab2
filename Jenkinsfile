@@ -12,7 +12,6 @@ spec:
     - cat
     tty: true
     '''
-            defaultContainer 'build'
   }
 }
     tools{
